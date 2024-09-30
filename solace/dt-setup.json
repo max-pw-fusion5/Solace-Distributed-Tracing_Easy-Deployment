@@ -1,0 +1,48 @@
+{
+    "hostname": "solace",
+    "port": "8080",
+
+    "username": "admin",
+    "password" : "admin",
+
+    "msg_vpn_name":     "default",
+    
+    "client_username":{
+        "username":             "default",
+        "new_password":         "default"
+    },
+
+    "client_profile":   "default",
+
+    "telemetry_profile":{
+        "name":                 "trace",
+        "filter_name":          "default"
+    },
+
+    "collector_client_username": {
+        "aclProfileName":       "#telemetry-trace",
+        "clientProfileName":    "#telemetry-trace",
+        "clientUsername":       "trace",
+        "enabled":              true,
+        "msgVpnName":           "default",
+        "password":             "trace"
+    },
+
+    "queues": [
+        {
+            "name":                 "q",
+            "msg_vpn_name":         "default",
+            "access_type":          "exclusive", 
+            "maxMsgSpoolUsage":     5000,
+            "permission":           "delete",
+            "ingress_enabled":      true, 
+            "egress_enabled":       true,
+            "subscribed_topics" :
+            [
+                {
+                    "name": "solace/tracing"
+                }
+            ]
+        }
+    ]
+}
