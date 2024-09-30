@@ -5,8 +5,8 @@ services:
     container_name: solace
     image: $PUBSUB_IMAGE
     hostname: $PUBSUB_HOSTNAME
-    # volumes:
-    #   - "solace:/var/lib/solace"
+    volumes:
+      - "solace:/var/lib/solace"
     shm_size: 1g
     ulimits:
       core: -1
@@ -113,8 +113,8 @@ services:
     networks:
       - common-network
 
-# volumes:
-#   solace:
+volumes:
+  solace:
 
 networks:
   common-network:
